@@ -1,0 +1,31 @@
+<div class="naslovna">
+  <nav class="navigacija">
+    <ul>
+      <li routerLink="/proizvodi" routerLinkActive="active">PROIZVODI</li>
+      <li routerLink="/dostavljac" routerLinkActive="active">DOSTAVLJAC</li>
+      <li routerLink="/evidencijaZaposlenika" routerLinkActive="active">EVIDENICJA ZAPOSLENIKA</li>
+      <li routerLink="/chartZaposlenik" routerLinkActive="active">CHARTOVI</li>
+      <li>
+        <div class="dropdown">
+          <input type="checkbox" id="my-dropdown" value="" name="my-checkbox">
+          <label for="my-dropdown"
+                 data-toggle="dropdown">
+            EVIDENCIJA
+          </label>
+          <ul>
+            <app-navigacija-evidencija></app-navigacija-evidencija>
+          </ul>
+        </div>
+      </li>
+
+    </ul>
+  </nav>
+</div>
+
+
+
+
+
+
+
+

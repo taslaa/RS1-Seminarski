@@ -1,0 +1,43 @@
+<form [formGroup]="profileForm" autocomplete="off">
+  <div class="pocetna">
+    <div class="center">
+      <div class="crna">
+        <mat-icon (click) = "zatvoriDialog()" aria-hidden="false" aria-label="Example home icon" fontIcon="home">X</mat-icon>
+        <div class="crna_tekst">
+          <h1 class = "prijava">PRIJAVA</h1>
+        </div>
+      </div>
+      <div class="bijela">
+        <div class="bijela_margine">
+          <div class="txt_field">
+            <label>Email:</label>
+            <input formControlName="email" matInput [(ngModel)]="loginKorisnik.email">
+            <mat-hint style="color: red" *ngIf="profileForm.get('email').touched && profileForm.get('email').errors?.['required']">Ovo polje je obavezno</mat-hint>
+            <mat-hint style="color: red" *ngIf="profileForm.get('email').errors?.['minlength']">Ovo polje mora imati minimalno 5 karaktera</mat-hint>
+            <span></span>
+
+          </div>
+          <div class="txt_field">
+            <label>Lozinka:</label>
+            <input formControlName="lozinka" matInput [(ngModel)]="loginKorisnik.lozinka">
+            <mat-hint style="color: red" *ngIf="profileForm.get('lozinka').touched && profileForm.get('lozinka').errors?.['required']">Ovo polje je obavezno</mat-hint>
+            <mat-hint style="color: red" *ngIf="profileForm.get('lozinka').errors?.['minlength']">Ovo polje mora imati minimalno 5 karaktera</mat-hint>
+            <span></span>
+
+          </div>
+          <button mat-raised-button style="background-color: #3d3d3d;color: white" (click)="Login(loginKorisnik)">PRIJAVA</button>
+          <div class="signup_link">
+            Novi korisnik?
+            <button class = "registracija" (click)="onCreate()">REGISTRUJ SE</button>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</form>
+
+
+

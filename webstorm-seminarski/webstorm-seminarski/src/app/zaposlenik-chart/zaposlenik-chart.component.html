@@ -1,0 +1,13 @@
+<app-router-zaposlenik></app-router-zaposlenik>
+<br>
+<br>
+<div style="display: block; width: 70%;height: 70%;margin-left: auto;margin-right: auto;" *ngIf='signalR2Service.data2'>
+  <canvas baseChart
+          [datasets]="signalR2Service.data2"
+          [labels]="chartLabels"
+          [options]="chartOptions"
+          [legend]="chartLegend"
+          [type]="chartType"></canvas>
+</div>
+<br>
+<br>

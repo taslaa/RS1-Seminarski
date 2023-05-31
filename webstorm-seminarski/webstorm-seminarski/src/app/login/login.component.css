@@ -1,0 +1,111 @@
+.icon-login{
+  width: 50px;
+  height: 50px;
+}
+.slika_pocetni{
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  filter: blur(8px);
+}
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+}
+
+.center{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 420px;
+background: white;
+height: 480px;
+}
+.bijela {
+  width: 100%;
+  height: 90%;
+}
+.crna {
+  background-color: black;
+  color: white;
+  height: 10%;
+  text-align: center;
+  width: 100%;
+  padding: 2px;
+}
+.bijela_margine {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+label {
+  font-weight: normal;
+  color: black;
+}
+mat-hint {
+  float: right;
+}
+button {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-weight: normal;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+.prijava {
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+}
+.crna_tekst {
+  margin-right: 25%;
+  margin-left: 25%;
+  height: 100%;
+  padding: 2px;
+}
+.signup_link {
+  text-align: center;
+}
+a {
+  width: 100%;
+  border: 2px solid black;
+}
+.registracija {
+  background-color: white;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+input {
+  border: 1px solid black;
+}
+mat-icon {
+  float: right;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.google-sign-in {
+  background-color: white;
+  border: 1px solid #D8DDEC;
+  padding: 10px 30px;
+  text-align: center;
+  font-weight: bold;
+  height: 100%;
+}
+img {
+  float: left;
+}

@@ -1,0 +1,81 @@
+<div class = "forma">
+  <div class="crna">
+    <mat-icon (click) = "zatvoriDialog()" aria-hidden="false" aria-label="Example home icon" fontIcon="home">X</mat-icon>
+    <div class="crna_tekst">
+      <h3 mat-dialog-title>REGISTRACIJA</h3>
+    </div>
+  </div>
+  <div class="bijela">
+    <div class="bijela_margine">
+      <form [formGroup]="profileForm" autocomplete="off">
+        <label>Ime</label>
+        <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+          <mat-label>Ime</mat-label>
+          <input formControlName="ime" matInput [(ngModel)]="dodajKorisnika.ime">
+          <mat-hint style="color: red" *ngIf="profileForm.get('ime').touched && profileForm.get('ime').errors?.['required']">Ovo polje je obavezno</mat-hint>
+          <mat-hint style="color: red" *ngIf="profileForm.get('ime').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+          <mat-label>Prezime</mat-label>
+          <input formControlName="prezime" matInput [(ngModel)]="dodajKorisnika.prezime">
+          <mat-hint style="color: red" *ngIf="profileForm.get('prezime').touched && profileForm.get('prezime').errors?.['required']">Ovo polje je obavezno</mat-hint>
+          <mat-hint style="color: red" *ngIf="profileForm.get('prezime').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+          <mat-label>Grad</mat-label>
+          <input formControlName="grad" matInput [(ngModel)]="dodajKorisnika.grad">
+          <mat-hint style="color: red" *ngIf="profileForm.get('grad').touched && profileForm.get('grad').errors?.['required']">Ovo polje je obavezno</mat-hint>
+          <mat-hint style="color: red" *ngIf="profileForm.get('grad').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+          <mat-label>Drzava</mat-label>
+          <mat-select formControlName="drzavaId" hideRequiredMarker="true" [(ngModel)]="dodajKorisnika.drzavaId">
+            <mat-option *ngFor="let drzava of drzave" [value]="drzava.id">
+              {{drzava.nazivDrzave}}
+            </mat-option>
+          </mat-select>
+          <mat-hint style="color: red" *ngIf="profileForm.get('drzavaId').touched && profileForm.get('drzavaId').errors?.['required']">Ovo polje je obavezno</mat-hint>
+          <mat-hint style="color: red" *ngIf="profileForm.get('drzavaId').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+          <mat-label>Spol</mat-label>
+          <mat-select formControlName="spolId" hideRequiredMarker="true" [(ngModel)]="dodajKorisnika.spolId">
+            <mat-option *ngFor="let spol of spolovi" [value]="spol.id">
+              {{spol.nazivSpola}}
+            </mat-option>
+          </mat-select>
+          <mat-hint style="color: red" *ngIf="profileForm.get('spolId').touched && profileForm.get('spolId').errors?.['required']">Ovo polje je obavezno</mat-hint>
+          <mat-hint style="color: red" *ngIf="profileForm.get('spolId').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+          <mat-label>Broj telefona</mat-label>
+          <input formControlName="brojTelefona" matInput [(ngModel)]="dodajKorisnika.brojTelefona">
+          <mat-hint style="color: red" *ngIf="profileForm.get('brojTelefona').touched && profileForm.get('brojTelefona').errors?.['required']">Ovo polje je obavezno</mat-hint>
+          <mat-hint style="color: red" *ngIf="profileForm.get('brojTelefona').errors?.['minlength']">Ovo polje mora imati minimalno 6 znakova</mat-hint>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+          <mat-label>Adresa</mat-label>
+          <input formControlName="adresa" matInput [(ngModel)]="dodajKorisnika.adresa">
+          <mat-hint style="color: red" *ngIf="profileForm.get('adresa').touched && profileForm.get('adresa').errors?.['required']">Ovo polje je obavezno</mat-hint>
+          <mat-hint style="color: red" *ngIf="profileForm.get('adresa').errors?.['minlength']">Ovo polje mora imati minimalno 5 karaktera</mat-hint>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput [(ngModel)]="dodajKorisnika.email">
+          <mat-hint style="color: red" *ngIf="profileForm.get('email').touched && profileForm.get('email').errors?.['required']">Ovo polje je obavezno</mat-hint>
+          <mat-hint style="color: red" *ngIf="profileForm.get('email').errors?.['minlength']">Ovo polje mora imati minimalno 5 karaktera</mat-hint>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+          <mat-label>Lozinka</mat-label>
+          <input formControlName="lozinka" matInput [(ngModel)]="dodajKorisnika.lozinka">
+          <mat-hint style="color: red" *ngIf="profileForm.get('lozinka').touched && profileForm.get('lozinka').errors?.['required']">Ovo polje je obavezno</mat-hint>
+          <mat-hint style="color: red" *ngIf="profileForm.get('lozinka').errors?.['minlength']">Ovo polje mora imati minimalno 5 karaktera</mat-hint>
+        </mat-form-field>
+
+        <button mat-raised-button style="background-color: #3d3d3d;color: white" (click)="Dodaj(dodajKorisnika)">REGISTRACIJA</button>
+
+      </form>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,33 @@
+<div>
+  <h3 mat-dialog-title>PRODAVNICA</h3>
+  <form [formGroup]="profileForm" autocomplete="off">
+    <mat-dialog-content class="example-container">
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Naziv prodavnice</mat-label>
+        <input formControlName="naziv" matInput [(ngModel)]="data.naziv">
+        <mat-hint style="color: red" *ngIf="profileForm.get('naziv').touched && profileForm.get('naziv').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('naziv').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Adresa</mat-label>
+        <input formControlName="adresa" matInput [(ngModel)]="data.adresa">
+        <mat-hint style="color: red" *ngIf="profileForm.get('adresa').touched && profileForm.get('adresa').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('adresa').errors?.['digits']">Ovo polje mora imati samo brojeve</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Telefon</mat-label>
+        <input formControlName="telefon" matInput [(ngModel)]="data.telefon">
+        <mat-hint style="color: red" *ngIf="profileForm.get('telefon').touched && profileForm.get('telefon').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('telefon').errors?.['digits']">Ovo polje mora imati samo brojeve</mat-hint>
+      </mat-form-field>
+      <button type="button" mat-raised-button (click)="fileInput.click()">Upload slika</button>
+      <input hidden (change)="onSelectedNewFile($event)" accept="image/*" #fileInput type="file" id="file"><br>
+    </mat-dialog-content>
+    <mat-dialog-actions class="buttons">
+      <button mat-raised-button mat-dialog-close="">Close</button>
+      <button mat-raised-button style="background-color: #3d3d3d;color: white" (click)="Save()">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>
+
+

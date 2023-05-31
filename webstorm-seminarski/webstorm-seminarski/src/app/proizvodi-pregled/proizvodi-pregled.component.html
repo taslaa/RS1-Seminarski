@@ -1,0 +1,88 @@
+<div class="glavni">
+  <div class="glavni_margine">
+    <div class="opis_glavni">
+      <div class="opis">
+        <div class="tekst">
+          <p class = "mali">Proizvodi</p>
+        </div>
+        <div class="tekst_veliki">
+          <p class = "veliki">Složićete se da kvallitetnu, trendi i urbanu garderobu nije uvijek lako naći, naročito kada govorimo o street style varijantama. Ona treba da bude dovoljno kul da i vas i druge ostavi bez daha kad god je ponesete, ali i da bude potpuno originalna, da vas izdvoji u masi. Muška garderoba i ženska garderoba koja potpuno odgovara opisima koje smo naveli dio je ponude Buzz Online Shop-a.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pretraga_glavni">
+      <div class="filter">
+        <div class="dugmad">
+          <mat-form-field class="search_bar" appearance="fill">
+            <mat-label >Pretraga po nazivu</mat-label>
+            <input matInput placeholder="Unesi naziv" [(ngModel)]="search.Naziv">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Sortiraj po</mat-label>
+            <mat-select  [(ngModel)]="search.ComboBoxSearch">
+              <mat-option *ngFor="let list of listSort" [value]="list.value">
+                {{list.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>DOBAVLJAČ</mat-label>
+            <mat-select  [(ngModel)]="search.DobavljacSearch">
+              <mat-option [value]="0">Svi dobavljaci</mat-option>
+              <mat-option *ngFor="let list of listDobavljaci" [value]="list.id">
+                {{list.nazivDobavljaca}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>KATEGORIJA</mat-label>
+            <mat-select  [(ngModel)]="search.KategorijaSearch">
+              <mat-option [value]="0">Sve kategorije</mat-option>
+              <mat-option *ngFor="let list of listKategorije" [value]="list.id">
+                {{list.nazivKategorije}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>BREND</mat-label>
+            <mat-select  [(ngModel)]="search.BrendSearch">
+              <mat-option [value]="0">Svi brendovi</mat-option>
+              <mat-option *ngFor="let list of listBrendovi" [value]="list.id">
+                {{list.nazivBrenda}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button class = "mat-dugme" (click)="Filtriraj()">Pretraga</button>
+        </div>
+        <div class="ponuda">
+          <mat-grid-list cols="4"rowHeight="400px">
+            <mat-grid-tile class = "prozor" *ngFor="let x of obs | async"><mat-card class="example-card">
+              <img mat-card-image src="{{x.slika}}" alt="Photo of a Shiba Inu" style="height: 180px;width: 250px">
+              <mat-card-content>
+                <p style="font-size: 14px;font-weight: bold">{{x.nazivProizvoda}}</p>
+
+                <p style="font-size: 12px">
+                  Cijena: {{x.cijena}} KM
+                </p>
+
+                <mat-card-actions style="margin-top:10px">
+                  <div style="display: flex ; justify-content: center"><button id="recenzijaButton" mat-raised-button style="width: 90%;margin-bottom: 5px;" color="accent" (click)="otvori_recenziju(x)">Dodaj recenziju</button></div>
+                </mat-card-actions>
+              </mat-card-content>
+            </mat-card></mat-grid-tile>
+
+          </mat-grid-list>
+          <mat-paginator style="position: relative" [pageSizeOptions]="[4, 10, 25, 100]"></mat-paginator>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div>

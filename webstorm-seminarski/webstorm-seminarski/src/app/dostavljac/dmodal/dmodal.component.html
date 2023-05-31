@@ -1,0 +1,34 @@
+<div>
+  <h3 mat-dialog-title>PROIZVOD</h3>
+  <form [formGroup]="profileForm" autocomplete="off">
+    <mat-dialog-content class="example-container">
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Naziv dostavljaca</mat-label>
+        <input formControlName="naziv" matInput [(ngModel)]="data.naziv">
+        <mat-hint style="color: red" *ngIf="profileForm.get('naziv').touched && profileForm.get('naziv').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('naziv').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Telefon</mat-label>
+        <input formControlName="telefon" matInput [(ngModel)]="data.telefon">
+        <mat-hint style="color: red" *ngIf="profileForm.get('telefon').touched && profileForm.get('telefon').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('telefon').errors?.['digits']">Ovo polje mora imati samo brojeve</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" appearance="fill">
+        <mat-label>Odaberite drzavu</mat-label>
+        <mat-select formControlName="drzava" hideRequiredMarker="true" [(ngModel)]="data.drzavaId">
+          <mat-option *ngFor="let drzava of drzave" [value]="drzava.id">
+            {{drzava.nazivDrzave}}
+          </mat-option>
+        </mat-select>
+        <mat-hint style="color: red" *ngIf="profileForm.get('drzava').touched && profileForm.get('drzava').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions class="buttons">
+      <button mat-raised-button mat-dialog-close="">Close</button>
+      <button mat-raised-button style="background-color: #3d3d3d;color: white" (click)="Save()">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>
+
+

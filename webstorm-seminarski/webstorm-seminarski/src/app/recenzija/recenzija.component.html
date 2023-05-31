@@ -1,0 +1,78 @@
+<div>
+  <div class="mb-3 row">
+    <label class="col-sm-2 col-form-label">Proizvod ID</label>
+    <div class="col-sm-4">
+      <input [value]="recenzija.id" disabled class="form-control" />
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <label class="col-sm-2 col-form-label">Naziv proizvoda</label>
+    <div class="col-sm-4">
+      <input [value]="recenzija.nazivProizvoda" disabled class="form-control" />
+    </div>
+  </div>
+
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Opis</th>
+      <th>Ocjena</th>
+      <th>Ocijenio korisnik</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let r of recenzija.recenzije">
+      <td>{{r.opis}}</td>
+      <td>{{r.ocjena}}</td>
+      <td>{{r.korisnik.ime}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <button class="form-label" (click)="dodajRecenziju()">Dodaj recenziju</button>
+</div>
+
+<div
+  class="modal fade show"
+  id="exampleModalLive"
+  tabindex="-1"
+  aria-labelledby="exampleModalLiveLabel"
+  aria-modal="true"
+  role="dialog"
+  style="display: block"
+  *ngIf="novaRecenzija!=null"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Nova recenzija za {{recenzija.nazivProizvoda}}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="novaRecenzija=null"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Opis</label>
+          <input class="form-control" placeholder="Opis" [(ngModel)]="novaRecenzija.opis"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Ocjena</label>
+          <input class="form-control" placeholder="Ocjena" [(ngModel)]="novaRecenzija.ocjena"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Korisnik ime</label>
+          <input class="form-control" placeholder="Korisnik ime"  [(ngModel)]="novaRecenzija.korisnikime"/>
+        </div>
+        <div style="display: none" class="mb-3">
+          <label class="form-label" >Korisnik id</label>
+          <input class="form-control" placeholder="Korisnik id" [(ngModel)]="novaRecenzija.korisnikid"/>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="novaRecenzija=null">Close</button>
+        <button type="button" class="btn btn-primary" (click)="recenziraj()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,155 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown > input[type="checkbox"] {
+  position: absolute;
+  left: -100vw;
+}
+
+.dropdown > label,
+.dropdown > a[role="button"] {
+  display: inline-block;
+  padding: 6px 15px;
+  color: #333;
+  line-height: 1.5em;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.dropdown > label:hover,
+.dropdown > a[role="button"]:hover,
+.dropdown > a[role="button"]:focus {
+  border-color: #333;
+}
+
+.dropdown > label:after,
+.dropdown > a[role="button"]:after {
+  content: "\f0d7";
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.dropdown > ul {
+  position: absolute;
+  z-index: 999;
+  display: block;
+  left: -100vw;
+  top: calc(1.5em + 14px);
+  border: 1px solid #8c8c8c;
+  background: #fff;
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 3px 8px rgba(0,0,0,.15);
+  box-shadow: 0 3px 8px rgba(0,0,0,.15);
+  list-style-type: none;
+  margin-left: 20px;
+}
+
+.dropdown > ul a {
+  display: block;
+  padding: 6px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown > ul a:hover,
+.dropdown > ul a:focus {
+  background: #ececec;
+}
+
+.dropdown > input[type="checkbox"]:checked ~ ul,
+.dropdown > ul:target {
+  left: 0;
+}
+
+.dropdown > [type="checkbox"]:checked + label:after,
+.dropdown > ul:target ~ a:after {
+  content: "\f0d8";
+  list-style-type: none;
+}
+
+.dropdown a.close {
+  display: none;
+}
+
+.dropdown > ul:target ~ a.close {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  text-indent: -100vw;
+  z-index: 1000;
+  list-style-type: none;
+}
+
+
+/*
+ Demo purposes only
+*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 30px;
+  color: #333;
+}
+
+.dropdown + h2 {
+  margin-top: 60px;
+}
+li, ul {
+  list-style-type: none;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  list-style-type: none;
+  margin-left: 3rem;
+}
+
+li > a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+
+li::after {
+  content: '';
+  width: 0rem;
+  height: 0.15rem;
+  background-color: #fff;
+  display: block;
+  border-radius: 0.2rem;
+  margin: 0.2rem auto 0 auto;
+  transition: all 0.3s ease-in-out;
+}
+
+li:hover::after {
+  width: 2rem;
+}
+.navigacija {
+  margin-left: 22%;
+}

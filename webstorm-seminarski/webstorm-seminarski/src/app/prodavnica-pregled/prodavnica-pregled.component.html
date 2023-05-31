@@ -1,0 +1,57 @@
+
+<div class="glavni">
+  <div class="glavni_margine">
+    <div class="opis_glavni">
+      <div class="opis">
+        <div class="tekst">
+          <p class = "mali">Prodavnice</p>
+        </div>
+        <div class="tekst_veliki">
+          <p class = "veliki">Složićete se da kvallitetnu, trendi i urbanu garderobu nije uvijek lako naći, naročito kada govorimo o street style varijantama. Ona treba da bude dovoljno kul da i vas i druge ostavi bez daha kad god je ponesete, ali i da bude potpuno originalna, da vas izdvoji u masi. Muška garderoba i ženska garderoba koja potpuno odgovara opisima koje smo naveli dio je ponude Buzz Online Shop-a.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pretraga_glavni">
+      <div class="filter">
+        <div class="dugmad">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Search po nazivu</mat-label>
+            <input matInput placeholder="Unesi naziv" [(ngModel)]="search.Naziv">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Sortiraj po</mat-label>
+            <mat-select  [(ngModel)]="search.ComboBoxSearch">
+              <mat-option *ngFor="let list of listSort" [value]="list.value">
+                {{list.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button class = "mat-dugme" (click)="Filtriraj()">Pretraga</button>
+        </div>
+        <div class="ponuda">
+          <mat-grid-list cols="4"rowHeight="400px">
+            <mat-grid-tile *ngFor="let x of obs | async"><mat-card class="example-card">
+              <img mat-card-image src="{{x.slika}}" style="height: 150px">
+              <mat-card-content>
+                <p style="font-size: 14px;font-weight: bold">{{x.naziv}}</p>
+                <p style="font-size: 12px">
+                  Adresa : {{x.adresa}} KM
+                </p>
+              </mat-card-content>
+            </mat-card></mat-grid-tile>
+
+          </mat-grid-list>
+          <mat-paginator style="position: relative" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div>

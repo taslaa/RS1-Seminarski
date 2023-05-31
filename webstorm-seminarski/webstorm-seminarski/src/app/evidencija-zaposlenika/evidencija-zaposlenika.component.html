@@ -1,0 +1,80 @@
+<div>
+  <app-router-zaposlenik></app-router-zaposlenik>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Korisnik</th>
+      <th>Datum prijave</th>
+      <th>Datum odjave</th>
+      <th>Aktivan</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let e of evidencija.evidencije">
+      <td>{{e.korisnik.ime}}</td>
+      <td>{{e.datumPrijave}}</td>
+      <td>{{e.datumOdjave}}</td>
+      <td>{{e.aktivan}}</td>
+      <td>
+        <button (click)="urediEvidenciju(e)">Uredi</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <button class="form-label" (click)="dodajEvidenciju()">Prijavi se na smjenu</button>
+</div>
+
+<div
+  class="modal fade show"
+  id="exampleModalLive"
+  tabindex="-1"
+  aria-labelledby="exampleModalLiveLabel"
+  aria-modal="true"
+  role="dialog"
+  style="display: block"
+  *ngIf="novaEvidencija!=null"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Prijava na smjenu</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="novaEvidencija=null"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Korisnik ime</label>
+          <input class="form-control" placeholder="Korisnik ime"  [(ngModel)]="novaEvidencija.korisnikIme"/>
+        </div>
+        <div style="display: none" class="mb-3">
+          <label class="form-label" >Korisnik id</label>
+          <input class="form-control" placeholder="Korisnik id" [(ngModel)]="novaEvidencija.korisnikId"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Datum prijave</label>
+          <input class="form-control" type="date" placeholder="Datum prijave" [(ngModel)]="novaEvidencija.datumPrijave"/>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Datum odjave</label>
+          <input class="form-control" type="date" placeholder="Datum odjave" [(ngModel)]="novaEvidencija.datumOdjave"/>
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            placeholder="aktivan"
+            [(ngModel)]="novaEvidencija.aktivan"
+          />
+          <label class="form-check-label">Aktivnost</label>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="novaEvidencija=null">Close</button>
+          <button type="button" class="btn btn-primary" (click)="dodaj()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

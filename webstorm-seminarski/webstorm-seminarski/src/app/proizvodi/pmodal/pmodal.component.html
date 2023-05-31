@@ -1,0 +1,68 @@
+<div>
+  <h3 mat-dialog-title>PROIZVOD</h3>
+  <form [formGroup]="profileForm" autocomplete="off">
+    <mat-dialog-content class="example-container">
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Naziv proizvoda</mat-label>
+        <input formControlName="nazivProizvoda" matInput [(ngModel)]="data.nazivProizvoda">
+        <mat-hint style="color: red" *ngIf="profileForm.get('nazivProizvoda').touched && profileForm.get('nazivProizvoda').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('nazivProizvoda').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Cijena</mat-label>
+        <input formControlName="cijena" matInput [(ngModel)]="data.cijena">
+        <mat-hint style="color: red" *ngIf="profileForm.get('cijena').touched && profileForm.get('cijena').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('cijena').errors?.['digits']">Ovo polje mora imati samo brojeve</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Serijski broj</mat-label>
+        <input formControlName="serijskiBroj" matInput [(ngModel)]="data.serijskiBroj">
+        <mat-hint style="color: red" *ngIf="profileForm.get('serijskiBroj').touched && profileForm.get('serijskiBroj').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('serijskiBroj').errors?.['digits']">Ovo polje mora imati samo brojeve</mat-hint>
+      </mat-form-field>
+      <button type="button" mat-raised-button (click)="fileInput.click()">Upload slika</button>
+      <input hidden (change)="onSelectedNewFile($event)" accept="image/*" #fileInput type="file" id="file"><br>
+      <mat-form-field hideRequiredMarker="true" appearance="fill">
+        <mat-label>Odaberite dobavljaca</mat-label>
+        <mat-select formControlName="dobavljac" hideRequiredMarker="true" [(ngModel)]="data.dobavljacId">
+          <mat-option *ngFor="let dobavljac of dobavljaci" [value]="dobavljac.id">
+            {{dobavljac.nazivDobavljaca}}
+          </mat-option>
+        </mat-select>
+        <mat-hint style="color: red" *ngIf="profileForm.get('dobavljac').touched && profileForm.get('dobavljac').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" appearance="fill">
+        <mat-label>Odaberite kategoriju</mat-label>
+        <mat-select formControlName="kategorija" hideRequiredMarker="true" [(ngModel)]="data.kategorijaId">
+          <mat-option *ngFor="let kategorije of kategorija" [value]="kategorije.id">
+            {{kategorije.nazivKategorije}}
+          </mat-option>
+        </mat-select>
+        <mat-hint style="color: red" *ngIf="profileForm.get('kategorija').touched && profileForm.get('kategorija').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" appearance="fill">
+        <mat-label>Odaberite brend</mat-label>
+        <mat-select formControlName="brend" hideRequiredMarker="true" [(ngModel)]="data.brendId">
+          <mat-option *ngFor="let brendovi of brend" [value]="brendovi.id">
+            {{brendovi.nazivBrenda}}
+          </mat-option>
+        </mat-select>
+        <mat-hint style="color: red" *ngIf="profileForm.get('brend').touched && profileForm.get('brend').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" appearance="fill">
+        <mat-label>Odaberite valutu</mat-label>
+        <mat-select formControlName="valuta" hideRequiredMarker="true" [(ngModel)]="data.valutaId">
+          <mat-option *ngFor="let valute of valuta" [value]="valute.id">
+            {{valute.naziv}}
+          </mat-option>
+        </mat-select>
+        <mat-hint style="color: red" *ngIf="profileForm.get('valuta').touched && profileForm.get('valuta').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions class="buttons">
+      <button mat-raised-button mat-dialog-close="">Close</button>
+      <button mat-raised-button style="background-color: #3d3d3d;color: white" (click)="Save()">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>
+

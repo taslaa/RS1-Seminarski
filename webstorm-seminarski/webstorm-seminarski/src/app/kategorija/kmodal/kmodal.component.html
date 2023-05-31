@@ -1,0 +1,32 @@
+<div>
+  <h3 mat-dialog-title>KATEGORIJA</h3>
+  <form [formGroup]="profileForm" autocomplete="off">
+    <mat-dialog-content class="example-container">
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Naziv kategorije</mat-label>
+        <input formControlName="nazivKategorije" matInput [(ngModel)]="data.nazivKategorije">
+        <mat-hint style="color: red" *ngIf="profileForm.get('nazivKategorije').touched && profileForm.get('nazivKategorije').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('nazivKategorije').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Materijal</mat-label>
+        <input formControlName="materijal" matInput [(ngModel)]="data.materijal">
+        <mat-hint style="color: red" *ngIf="profileForm.get('materijal').touched && profileForm.get('materijal').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('materijal').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Kvalitet</mat-label>
+        <input formControlName="kvalitet" matInput [(ngModel)]="data.kvalitet">
+        <mat-hint style="color: red" *ngIf="profileForm.get('kvalitet').touched && profileForm.get('kvalitet').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('kvalitet').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions class="buttons">
+      <button mat-raised-button mat-dialog-close="">Close</button>
+      <button mat-raised-button style="background-color: #3d3d3d;color: white" (click)="Save()">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>
+
+
+

@@ -1,0 +1,84 @@
+<div>
+  <h3 mat-dialog-title>ZAPOSLENIK</h3>
+  <form [formGroup]="profileForm" autocomplete="off">
+    <mat-dialog-content class="example-container">
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Ime</mat-label>
+        <input formControlName="ime" matInput [(ngModel)]="data.ime">
+        <mat-hint style="color: red" *ngIf="profileForm.get('ime').touched && profileForm.get('ime').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('ime').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Prezime</mat-label>
+        <input formControlName="prezime" matInput [(ngModel)]="data.prezime">
+        <mat-hint style="color: red" *ngIf="profileForm.get('prezime').touched && profileForm.get('prezime').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('prezime').errors?.['digits']">Ovo polje mora imati samo brojeve</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" appearance="fill" class="example-form-field">
+        <mat-label>Choose a date</mat-label>
+        <input hideRequiredMarker="true" formControlName="datumRodjenja" matInput [matDatepicker]="datepicker" [(ngModel)]="data.datumRodjenja">
+        <mat-hint style="color: red" *ngIf="profileForm.get('datumRodjenja').touched && profileForm.get('datumRodjenja').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Grad</mat-label>
+        <input formControlName="grad" matInput [(ngModel)]="data.grad">
+        <mat-hint style="color: red" *ngIf="profileForm.get('grad').touched && profileForm.get('grad').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('grad').errors?.['digits']">Ovo polje mora imati samo brojeve</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Broj telefona</mat-label>
+        <input formControlName="brojTelefona" matInput [(ngModel)]="data.brojTelefona">
+        <mat-hint style="color: red" *ngIf="profileForm.get('brojTelefona').touched && profileForm.get('brojTelefona').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('brojTelefona').errors?.['digits']">Ovo polje mora imati samo brojeve</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Adresa</mat-label>
+        <input formControlName="adresa" matInput [(ngModel)]="data.adresa">
+        <mat-hint style="color: red" *ngIf="profileForm.get('adresa').touched && profileForm.get('adresa').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('adresa').errors?.['digits']">Ovo polje mora imati samo brojeve</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" appearance="fill">
+        <mat-label>Odaberite drzavu</mat-label>
+        <mat-select formControlName="drzava" hideRequiredMarker="true" [(ngModel)]="data.drzavaId">
+          <mat-option *ngFor="let drzava of drzave" [value]="drzava.id">
+            {{drzava.nazivDrzave}}
+          </mat-option>
+        </mat-select>
+        <mat-hint style="color: red" *ngIf="profileForm.get('drzava').touched && profileForm.get('drzava').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" appearance="fill">
+        <mat-label>Odaberite spol</mat-label>
+        <mat-select formControlName="spol" hideRequiredMarker="true" [(ngModel)]="data.spolId">
+          <mat-option *ngFor="let spol of spolovi" [value]="spol.id">
+            {{spol.nazivSpola}}
+          </mat-option>
+        </mat-select>
+        <mat-hint style="color: red" *ngIf="profileForm.get('spol').touched && profileForm.get('spol').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput [(ngModel)]="data.email">
+      <mat-hint style="color: red" *ngIf="profileForm.get('email').touched && profileForm.get('email').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      <mat-hint style="color: red" *ngIf="profileForm.get('email').errors?.['minlength']">Ovo polje mora imati minimalno 5 karaktera</mat-hint>
+    </mat-form-field>
+    <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+      <mat-label>Lozinka</mat-label>
+      <input formControlName="lozinka" matInput [(ngModel)]="data.lozinka">
+      <mat-hint style="color: red" *ngIf="profileForm.get('lozinka').touched && profileForm.get('lozinka').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      <mat-hint style="color: red" *ngIf="profileForm.get('lozinka').errors?.['minlength']">Ovo polje mora imati minimalno 5 karaktera</mat-hint>
+    </mat-form-field>
+    <mat-dialog-actions class="buttons">
+      <button mat-raised-button mat-dialog-close="">Close</button>
+      <button mat-raised-button style="background-color: #3d3d3d;color: white" (click)="Save()">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>
+

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+.slika{
+  background-image: url("https://img.rasset.ie/00139b7c-800.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  z-index: -1;
+  position: absolute;
+}
+
+.slika_duks{
+  height: 25%;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.glavni{
+  height: 85%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.naslov{
+  color: white;
+  font-size: 48px;
+  font-family: Dosis
+}
+.pocetna{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

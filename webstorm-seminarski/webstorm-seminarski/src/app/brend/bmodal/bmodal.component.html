@@ -1,0 +1,35 @@
+<div>
+  <h3 mat-dialog-title>BREND</h3>
+  <form [formGroup]="profileForm" autocomplete="off">
+    <mat-dialog-content class="example-container">
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Unesite naziv brenda</mat-label>
+        <input formControlName="nazivBrenda" matInput [(ngModel)]="data.nazivBrenda">
+        <mat-hint style="color: red" *ngIf="profileForm.get('nazivBrenda').touched && profileForm.get('nazivBrenda').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('nazivBrenda').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" appearance="fill">
+        <mat-label>Odaberite drzavu</mat-label>
+        <mat-select formControlName="drzava" hideRequiredMarker="true" [(ngModel)]="data.drzavaId">
+          <mat-option *ngFor="let drzava of drzave" [value]="drzava.id">
+            {{drzava.nazivDrzave}}
+          </mat-option>
+        </mat-select>
+        <mat-hint style="color: red" *ngIf="profileForm.get('drzava').touched && profileForm.get('drzava').errors?.['required']">Ovo polje je obavezno</mat-hint>
+      </mat-form-field>
+      <mat-form-field hideRequiredMarker="true" class="example-full-width" appearance="fill">
+        <mat-label>Luxury</mat-label>
+        <input formControlName="luxury" matInput [(ngModel)]="data.luxury">
+        <mat-hint style="color: red" *ngIf="profileForm.get('luxury').touched && profileForm.get('luxury').errors?.['required']">Ovo polje je obavezno</mat-hint>
+        <mat-hint style="color: red" *ngIf="profileForm.get('luxury').errors?.['minlength']">Ovo polje mora imati minimalno 3 karaktera</mat-hint>
+      </mat-form-field>
+      <button type="button" mat-raised-button (click)="fileInput.click()">Upload slika</button>
+      <input hidden (change)="onSelectedNewFile($event)" accept="image/*" #fileInput type="file" id="file"><br>
+    </mat-dialog-content>
+    <mat-dialog-actions class="buttons">
+      <button mat-raised-button mat-dialog-close="">Close</button>
+      <button mat-raised-button style="background-color: #3d3d3d;color: white" (click)="Save()">Save</button>
+    </mat-dialog-actions>
+  </form>
+</div>
+

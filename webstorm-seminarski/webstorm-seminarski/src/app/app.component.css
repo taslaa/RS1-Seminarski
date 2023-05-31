@@ -1,0 +1,113 @@
+.naslovna{
+  height: 15%;
+  width:100%;
+  background-size: cover;
+  background-color: white;
+}
+ul{
+  text-align: center;
+  height:100%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav ul li{
+  display: flex;
+  margin-right: 3%;
+  font-size: 16px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+li:hover{
+  border-bottom: 4px solid powderblue;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #ffcc00;
+}
+.active{
+  border-bottom: 4px solid powderblue;
+  color: powderblue;
+}
+.logo{
+  position: relative;
+  width:35%;
+  height:100%;
+  box-sizing: border-box;
+}
+.navigacija{
+  position: absolute;
+  right:0;
+  top:0;
+  width:70%;
+  height:inherit;
+  box-sizing: border-box;
+}
+
+.slika{
+  display: block;
+  height: inherit;
+  margin-right: auto;
+  margin-left:auto;
+}
+.crna_traka {
+  width: 100%;
+  height: 40px;
+  background-color: black;
+}
+li {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.tekst {
+  height: 100%;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+.test {
+  color: white;
+}
+.marquee-w {
+  position: relative;
+  display: block;
+  width: 750px;
+  height: 140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+.marquee {
+  position: absolute;
+  display: block;
+  margin: auto auto;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 100%;
+  height: 100%;
+}
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  -webkit-text-stroke: 1px darkgray;
+  white-space: nowrap;
+  min-width: 100%;
+  height: 100%;
+  line-height: 140px;
+  font-size: 35px;
+  animation: marquee 10s linear infinite;
+  color: white;
+}
+.marquee2 span {
+  animation-delay: 5s;
+}
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}

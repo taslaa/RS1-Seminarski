@@ -1,0 +1,31 @@
+<div class="naslovna">
+  <div class="logo"><img class="slika" src="https://upload.wikimedia.org/wikipedia/en/thumb/3/37/Jumpman_logo.svg/300px-Jumpman_logo.svg.png"></div>
+  <nav class="navigacija">
+    <ul>
+      <li routerLink="/pocetna" routerLinkActive="active">POCETNA</li>
+      <li routerLink="/proizvodi-pregled" routerLinkActive="active">PROIZVODI</li>
+      <li routerLink="/prodavnica-pregled" routerLinkActive="active">PRODAVNICE</li>
+      <li *ngIf="AdminRole() === 'Admin'" routerLink="/admin" routerLinkActive="active">ADMIN</li>
+      <li *ngIf="ZaposlenikRole() === 'Zaposlenik'" routerLink="/zaposlenik-panel" routerLinkActive="active">ZAPOSLENIK</li>
+      <li routerLink="/lokacija" routerLinkActive="active">O NAMA</li>
+      <li *ngIf="!servis.isLoginActive()" (click)="onCreate()" routerLinkActive="active">LOGIN</li>
+      <li *ngIf="servis.isLoginActive()" (click)="servis.logout()" routerLink="/login" routerLinkActive="active">LOGOUT</li>
+    </ul>
+  </nav>
+  <div class="crna_traka">
+    <div class="tekst">
+      <div class="marquee-w">
+        <div class="marquee">
+          <span>THE CLOTHES YOU WEAR MATTER&nbsp;&nbsp;&nbsp;</span>
+        </div>
+        <div class="marquee marquee2">
+          <span>THE CLOTHES YOU WEAR MATTER&nbsp;&nbsp;&nbsp;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<router-outlet></router-outlet>
+
